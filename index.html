@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕵️ Mistério 50 Fases | Investigação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Cabeçalho -->
+        <header class="game-header">
+            <div class="header-left">
+                <i class="fas fa-newspaper"></i>
+                <h1>ARQUIVO CONFIDENCIAL</h1>
+            </div>
+            <div class="header-right">
+                <div class="phase-display">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Fase <span id="currentPhase">1</span>/50</span>
+                </div>
+                <div class="solved-badge">
+                    <i class="fas fa-check-circle"></i>
+                    <span id="solvedCount">0</span> resolvidos
+                </div>
+            </div>
+        </header>
 
+        <!-- Área principal -->
+        <main class="game-main">
+            <!-- Jornal (esquerda) -->
+            <div class="newspaper-section">
+                <div class="newspaper-header">
+                    <i class="fas fa-newspaper"></i>
+                    <span>THE DAILY ENIGMA</span>
+                    <span class="newspaper-date" id="newspaperDate">Edição #001</span>
+                </div>
+                <div class="newspaper-content" id="newspaperContent">
+                    <h2 id="newsHeadline">Carregando...</h2>
+                    <div id="newsBody">Carregando conteúdo...</div>
+                </div>
+                <div class="newspaper-footer">
+                    <i class="fas fa-fingerprint"></i>
+                    <span>EVIDÊNCIA #<span id="evidenceNumber">001</span></span>
+                </div>
+            </div>
+
+            <!-- Painel de investigação (direita) -->
+            <div class="investigation-panel">
+                <div class="clues-section">
+                    <h3><i class="fas fa-search"></i> PISTAS ENCONTRADAS</h3>
+                    <div id="cluesList" class="clues-list">
+                        <!-- Pistas aparecem aqui -->
+                    </div>
+                </div>
+
+                <div class="password-section">
+                    <h3><i class="fas fa-lock"></i> DIGITE A SENHA</h3>
+                    <div class="password-input-group">
+                        <input type="text" id="passwordInput" placeholder="Senha secreta..." maxlength="20">
+                        <button id="submitPassword" class="btn-primary">
+                            <i class="fas fa-key"></i> DESBLOQUEAR
+                        </button>
+                    </div>
+                    <div id="passwordHint" class="password-hint"></div>
+                </div>
+
+                <div class="progress-section">
+                    <h3><i class="fas fa-chart-line"></i> PROGRESSO</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="progressPercent">0%</span> completo
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button id="prevPhase" class="btn-secondary" disabled>
+                        <i class="fas fa-arrow-left"></i> Anterior
+                    </button>
+                    <button id="nextPhase" class="btn-secondary" disabled>
+                        Próxima <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button id="resetGame" class="btn-danger">
+                        <i class="fas fa-rotate"></i> Resetar
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal de vitória -->
+        <div class="modal" id="victoryModal">
+            <div class="modal-content">
+                <i class="fas fa-trophy" style="font-size: 4rem; color: gold;"></i>
+                <h2>PARABÉNS DETETIVE!</h2>
+                <p>Você resolveu todos os 50 mistérios!</p>
+                <p>O caso está encerrado.</p>
+                <button id="closeVictory" class="btn-primary">CONTINUAR INVESTIGANDO</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="fases.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
